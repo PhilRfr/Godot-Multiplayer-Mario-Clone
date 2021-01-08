@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/jar-out.wav-b0d67d0e5572b403fa55919aa3868b77.sample"
+
+[deps]
+
+source_file="res://fx/jar-out.wav"
+dest_files=[ "res://.import/jar-out.wav-b0d67d0e5572b403fa55919aa3868b77.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/pull-ground.wav-a45f4abdd5b9238786fc85778a986ac7.sample"
+
+[deps]
+
+source_file="res://fx/pull-ground.wav"
+dest_files=[ "res://.import/pull-ground.wav-a45f4abdd5b9238786fc85778a986ac7.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

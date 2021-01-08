@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://sprites/ennemies/red_shyguy.png" type="Texture" id=1]
+[ext_resource path="res://elements/ennemies/Shyguy.gd" type="Script" id=2]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 1 )
+region = Rect2( 0, 0, 16, 16 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 1 )
+region = Rect2( 16, 0, 16, 16 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": true,
+"name": "walk",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 10.062, 8 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 3.1059, 3 )
+
+[node name="Red shyguy" type="KinematicBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="AnimatedSprite" parent="."]
+position = Vector2( 0, -8 )
+frames = SubResource( 3 )
+animation = "walk"
+frame = 1
+playing = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -8 )
+shape = SubResource( 4 )
+
+[node name="PainZone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PainZone"]
+position = Vector2( 0, -7 )
+shape = SubResource( 5 )
+
+[node name="PlatformLeft" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( -10.0662, -12.954 )
+enabled = true
+cast_to = Vector2( 0, 16 )
+
+[node name="PlatformRight" type="RayCast2D" parent="."]
+visible = false
+position = Vector2( 10, -12.954 )
+enabled = true
+cast_to = Vector2( 0, 16 )
+
+[node name="Frontal lobe" type="Node2D" parent="."]
+
+[node name="Head bonker" type="Area2D" parent="Frontal lobe"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Frontal lobe/Head bonker"]
+position = Vector2( -5.84076, -8.45374 )
+shape = SubResource( 6 )
+[connection signal="body_entered" from="PainZone" to="." method="_on_PainZone_body_entered"]
+[connection signal="body_exited" from="PainZone" to="." method="_on_PainZone_body_exited"]
+[connection signal="body_entered" from="Frontal lobe/Head bonker" to="." method="_on_Head_bonker_body_entered"]

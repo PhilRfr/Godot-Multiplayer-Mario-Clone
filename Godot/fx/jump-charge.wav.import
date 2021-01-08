@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/jump-charge.wav-d26e7651a4f84d6496c3b9cf12eebbb8.sample"
+
+[deps]
+
+source_file="res://fx/jump-charge.wav"
+dest_files=[ "res://.import/jump-charge.wav-d26e7651a4f84d6496c3b9cf12eebbb8.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

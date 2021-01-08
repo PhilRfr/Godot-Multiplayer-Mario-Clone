@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://sprites/ui/heart.png" type="Texture" id=1]
+[ext_resource path="res://ui/Heart.gd" type="Script" id=2]
+
+[node name="Heart" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -1013.0
+margin_bottom = -585.0
+rect_min_size = Vector2( 11, 15 )
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+hframes = 2
+frame = 1

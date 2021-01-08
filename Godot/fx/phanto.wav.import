@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/phanto.wav-727f41d3da819730a825244d02d29daa.sample"
+
+[deps]
+
+source_file="res://fx/phanto.wav"
+dest_files=[ "res://.import/phanto.wav-727f41d3da819730a825244d02d29daa.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

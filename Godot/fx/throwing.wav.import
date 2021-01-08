@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/throwing.wav-eb57c8d6115c61eb2d8fdd332adf1c24.sample"
+
+[deps]
+
+source_file="res://fx/throwing.wav"
+dest_files=[ "res://.import/throwing.wav-eb57c8d6115c61eb2d8fdd332adf1c24.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

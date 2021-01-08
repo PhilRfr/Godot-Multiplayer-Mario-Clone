@@ -1,0 +1,411 @@
+[gd_scene load_steps=23 format=2]
+
+[ext_resource path="res://sprites/player/mario_sprite.png" type="Texture" id=1]
+[ext_resource path="res://elements/Player.gd" type="Script" id=2]
+[ext_resource path="res://elements/PlayerSprite.gd" type="Script" id=3]
+
+[sub_resource type="Gradient" id=11]
+offsets = PoolRealArray( 0, 0.466667, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=12]
+gradient = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+flag_disable_z = true
+direction = Vector3( 0, -1, 0 )
+spread = 70.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 25.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+color_ramp = SubResource( 12 )
+
+[sub_resource type="RectangleShape2D" id=17]
+extents = Vector2( 8, 12 )
+
+[sub_resource type="RectangleShape2D" id=18]
+extents = Vector2( 8, 8 )
+
+[sub_resource type="Animation" id=29]
+resource_name = "death"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 0.159321, 2, 0.170755 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, -28 ), Vector2( 0, 261.173 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:animation_frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 25 ]
+}
+
+[sub_resource type="Animation" id=22]
+resource_name = "dig"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:animation_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 23, 16 ]
+}
+
+[sub_resource type="Animation" id=23]
+resource_name = "duck"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:animation_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 21 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:animation_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 13 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=5]
+resource_name = "idle_carry"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:animation_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 16 ]
+}
+
+[sub_resource type="Animation" id=6]
+resource_name = "jump"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:animation_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 15 ]
+}
+
+[sub_resource type="Animation" id=25]
+resource_name = "jump_carry"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:animation_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 18 ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "walk"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:animation_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 13, 14, 15 ]
+}
+
+[sub_resource type="Animation" id=10]
+resource_name = "walk_carry"
+length = 0.3
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:animation_frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ 16, 17, 18 ]
+}
+
+[sub_resource type="Animation" id=16]
+resource_name = "hurt"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+
+[sub_resource type="Animation" id=24]
+resource_name = "charged"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 3, 3, 3, 1 ), Color( 1, 1, 1, 1 ) ]
+}
+
+[sub_resource type="Animation" id=27]
+resource_name = "big"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Item:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 14 ), Vector2( 0, 4 ), Vector2( 0, -28 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Item:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=28]
+resource_name = "small"
+tracks/0/type = "value"
+tracks/0/path = NodePath("Item:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.6, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 14 ), Vector2( 0, 4 ), Vector2( 0, -14 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Item:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="Animation" id=26]
+resource_name = "start"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("Item:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector2( 0, 14 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Item:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[node name="Player" type="KinematicBody2D" groups=[
+"player",
+]]
+collision_mask = 2147483649
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 1 )
+centered = false
+offset = Vector2( -8, -32 )
+vframes = 3
+hframes = 13
+frame = 13
+script = ExtResource( 3 )
+animation_frame = 13
+
+[node name="Sweat particles" type="Particles2D" parent="Sprite"]
+visible = false
+position = Vector2( -0.222725, -14.5216 )
+amount = 4
+lifetime = 0.5
+randomness = 1.0
+process_material = SubResource( 13 )
+
+[node name="Item" type="Node2D" parent="."]
+position = Vector2( 0, 14 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="BigCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -12 )
+shape = SubResource( 17 )
+
+[node name="SmallCollisionShape" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2( 0, -8 )
+shape = SubResource( 18 )
+
+[node name="Camera" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 0.5, 0.5 )
+
+[node name="Charged" type="Timer" parent="."]
+one_shot = true
+
+[node name="Dig" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="Jump" type="Timer" parent="."]
+wait_time = 0.25
+one_shot = true
+
+[node name="Invulframes" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="Sprite animation" type="AnimationPlayer" parent="."]
+autoplay = "idle"
+anims/death = SubResource( 29 )
+anims/dig = SubResource( 22 )
+anims/duck = SubResource( 23 )
+anims/idle = SubResource( 4 )
+anims/idle_carry = SubResource( 5 )
+anims/jump = SubResource( 6 )
+anims/jump_carry = SubResource( 25 )
+anims/walk = SubResource( 8 )
+anims/walk_carry = SubResource( 10 )
+
+[node name="Hurt animation" type="AnimationPlayer" parent="."]
+anims/hurt = SubResource( 16 )
+
+[node name="Charged animation" type="AnimationPlayer" parent="."]
+anims/charged = SubResource( 24 )
+
+[node name="Item uprooting" type="AnimationPlayer" parent="."]
+anims/big = SubResource( 27 )
+anims/small = SubResource( 28 )
+anims/start = SubResource( 26 )
+
+[node name="Item in ground" type="Position2D" parent="."]
+position = Vector2( 0, 14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Item in hand big" type="Position2D" parent="."]
+position = Vector2( 0, -28 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+
+[node name="Item in hand small" type="Position2D" parent="."]
+position = Vector2( 0, -14 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+[connection signal="animation_finished" from="Hurt animation" to="." method="_on_Hurt_animation_animation_finished"]
+[connection signal="animation_finished" from="Charged animation" to="." method="_on_Charged_animation_animation_finished"]

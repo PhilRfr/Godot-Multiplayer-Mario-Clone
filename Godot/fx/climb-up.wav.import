@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/climb-up.wav-f4da2c9c2c7d28e568968e5a20da7a4e.sample"
+
+[deps]
+
+source_file="res://fx/climb-up.wav"
+dest_files=[ "res://.import/climb-up.wav-f4da2c9c2c7d28e568968e5a20da7a4e.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0
